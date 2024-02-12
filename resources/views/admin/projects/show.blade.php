@@ -6,7 +6,15 @@
         <a href="{{ route('admin.projects.index') }}" class="btn btn-primary btn-sm" role="button">Torna ai Progetti</a>
     </header>
     <div>
-        <strong>Tipo:</strong> {{ $project->type?->title }}
+        <strong>Tipo:</strong> {{ $project->type?->title ?: 'Nessun tipo' }}
+    </div>
+    <div>
+        <strong>Tecnologia:</strong>
+        <ul>
+            @foreach ($project->technologys as $technology)
+                <li>{{ $technology->title }}</li>
+            @endforeach
+        </ul>
     </div>
     <p>{{ $project->content }}</p>
 @endsection
