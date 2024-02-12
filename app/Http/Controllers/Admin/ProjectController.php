@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -30,8 +31,9 @@ class ProjectController extends Controller
     {
 
         $types = Type::all();
+        $technologys = Technology::all();
 
-        return view('admin.projects.create', compact('types'));
+        return view('admin.projects.create', compact('types', 'technologys'));
     }
 
     /**
@@ -48,6 +50,10 @@ class ProjectController extends Controller
         $project->slug = Str::of($project->title)->slug('-');
 
         $project->save();
+
+        if (isset($data['technologys'])) {
+            $project->technologys()->sync($data['technologys']);
+        }
 
         return redirect()->route('admin.projects.index')->with('message', "Progetto $project->title creato correttamente");
     }
