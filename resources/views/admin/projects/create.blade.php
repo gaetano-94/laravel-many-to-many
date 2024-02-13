@@ -9,7 +9,7 @@
     <form action="{{ route('admin.projects.store') }}" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="title" class="form-label">Titolo</label>
+            <label for="title" class="form-label"><strong>Titolo</strong></label>
             <input type="text" class="form-control  @error('title') is-invalid
                  @enderror" id="title"
                 placeholder="Nuovo Progetto" name="title">
@@ -18,7 +18,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="content" class="form-label">Contenuto</label>
+            <label for="content" class="form-label"><strong>Contenuto</strong></label>
             <textarea class="form-control @error('content') is-invalid
                  @enderror" id="content" rows="3"
                 name="content"></textarea>
@@ -27,7 +27,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="content" class="form-label">Tipo</label>
+            <label for="content" class="form-label"><strong>Tipo</strong></label>
             <select class="form-select" aria-label="Default select example" name="type_id">
                 <option selected>Apri il menu</option>
                 @foreach ($types as $type)
@@ -38,7 +38,7 @@
         </div>
         <div class="mb-3">
             <div>
-                <label class="form-label">Tecnologie</label>
+                <label class="form-label"><strong>Tecnologie</strong></label>
             </div>
             @if ($errors->any())
             @endif

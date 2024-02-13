@@ -10,7 +10,7 @@
         @csrf
         @method('PUT')
         <div class="mb-3">
-            <label for="title" class="form-label">Titolo</label>
+            <label for="title" class="form-label"><strong>Titolo</strong></label>
             <input type="text" class="form-control  @error('title') is-invalid
                  @enderror" id="title"
                 placeholder="Modifica Progetto" name="title" value="{{ old('title', $project->title) }}">
@@ -19,7 +19,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="content" class="form-label">Tipo</label>
+            <label for="content" class="form-label"><strong>Tipo</strong></label>
             <select class="form-select" aria-label="Default select example" name="type_id">
                 <option selected>Apri il menu</option>
                 @foreach ($types as $type)
@@ -29,7 +29,7 @@
             </select>
         </div>
         <div class="mb-3">
-            <label class="form-label">Contenuto</label>
+            <label class="form-label"><strong>Contenuto</strong></label>
             <textarea class="form-control @error('content') is-invalid
                  @enderror" name="content" id=""
                 cols="30" rows="5">{{ old('content', $project->content) }}</textarea>
