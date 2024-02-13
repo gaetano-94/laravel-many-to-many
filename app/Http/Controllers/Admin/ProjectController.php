@@ -75,7 +75,7 @@ class ProjectController extends Controller
         $types = Type::all();
         $technologies = Technology::all();
 
-        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'))->with('message', "Progetto $project->id modificato correttamente");
     }
 
     /**
@@ -94,7 +94,7 @@ class ProjectController extends Controller
         }
 
 
-        return redirect()->route('admin.projects.show', $project->slug);
+        return redirect()->route('admin.projects.show', $project->slug)->with('message', "Progetto $project->id aggiornato correttamente");
     }
 
     /**
@@ -107,7 +107,7 @@ class ProjectController extends Controller
 
         $project->delete();
 
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.projects.index')->with('message', "Progetto $project->id cancellato correttamente");
     }
 
     public function validation($data)
