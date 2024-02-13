@@ -42,11 +42,11 @@
             </div>
             @if ($errors->any())
             @endif
-            @foreach ($technologys as $technology)
+            @foreach ($technologies as $technology)
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="{{ $technology->id }}" name="technologys[]"
+                    <input class="form-check-input" type="checkbox" value="{{ $technology->id }}" name="technologies[]"
                         id="technology-{{ $technology->id }}"
-                        {{ in_array($technology->id, old('technologys', [])) ? 'checked' : '' }}>
+                        {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
                     <label class="form-check-label" for="technology-{{ $technology->id }}">{{ $technology->title }}</label>
                 </div>
             @endforeach

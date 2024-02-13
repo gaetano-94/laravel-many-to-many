@@ -31,9 +31,9 @@ class ProjectController extends Controller
     {
 
         $types = Type::all();
-        $technologys = Technology::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.create', compact('types', 'technologys'));
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -51,8 +51,8 @@ class ProjectController extends Controller
 
         $project->save();
 
-        if (isset($data['technologys'])) {
-            $project->technologys()->sync($data['technologys']);
+        if (isset($data['technologies'])) {
+            $project->technologies()->sync($data['technologies']);
         }
 
         return redirect()->route('admin.projects.index')->with('message', "Progetto $project->title creato correttamente");

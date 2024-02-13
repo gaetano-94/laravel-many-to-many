@@ -11,7 +11,7 @@
     <div>
         <strong>Tecnologia:</strong>
         <ul>
-            @foreach ($project->technologys as $technology)
+            @foreach ($project->technologies as $technology)
                 <li>{{ $technology->title }}</li>
             @endforeach
         </ul>
