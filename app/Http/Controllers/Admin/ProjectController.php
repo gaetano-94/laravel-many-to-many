@@ -73,8 +73,9 @@ class ProjectController extends Controller
     {
 
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -85,6 +86,13 @@ class ProjectController extends Controller
         $data = $this->validation($request->all());
 
         $project->update($data);
+
+        if (isset($data['technologies'])) {
+            $project->technologies()->sync($data['technologies']);
+        } else {
+            $project->technologies()->sync([]);
+        }
+
 
         return redirect()->route('admin.projects.show', $project->slug);
     }
