@@ -18,7 +18,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="content" class="form-label"><strong>Contenuto</strong></label>
+            <label for="content" class="form-label"><strong>Descrizione</strong></label>
             <textarea class="form-control @error('content') is-invalid
                  @enderror" id="content" rows="3"
                 name="content"></textarea>

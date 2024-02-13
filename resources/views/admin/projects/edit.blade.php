@@ -29,7 +29,7 @@
             </select>
         </div>
         <div class="mb-3">
-            <label class="form-label"><strong>Contenuto</strong></label>
+            <label class="form-label"><strong>Descrizione</strong></label>
             <textarea class="form-control @error('content') is-invalid
                  @enderror" name="content" id=""
                 cols="30" rows="5">{{ old('content', $project->content) }}</textarea>

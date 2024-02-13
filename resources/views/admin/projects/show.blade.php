@@ -16,5 +16,5 @@
             @endforeach
         </ul>
     </div>
-    <p><strong>Contenuto: </strong>{{ $project->content }}</p>
+    <p><strong>Descrizione: </strong>{{ $project->content }}</p>
 @endsection
